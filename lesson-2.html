@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+
+<!--     задание №1-->
+<script>
+	//пример 1
+	let a = 1, b = 1, c, d;
+	c = ++a; // префиксная форма инкремента c = a(1) + 1 = 2
+	alert(c); //2, после вывода a = 2
+
+    //пример 2
+	d = b++; // постфиксная форма инкремента d = b = 1 (переменная b увеличится после вывода в модальное окно)
+	alert(d); //1, после вывода b = 2
+
+    //пример 3
+	c = 2 + ++a; // префиксная форма инкремента с = 2 + a(2) + 1 = 5
+	alert(c); //5, после вывода a = 3
+
+    //пример 4
+	d = 2 + b++; // постфиксная форма инкремента d = 2 + b(2) = 4 (переменная b увеличится после вывода в модальное окно)
+	alert(d); //4, после вывода b = 3
+
+	alert(a); // a = 3
+	alert(b); // b = 3
+</script>
+
+<!--     задание №2-->
+<script>
+	/*
+	2 присваиваем в переменную e
+	переменную а умножаем на 2 получаем 4
+	4 присваиваем в переменную e
+	1 складываем с переменной e получаем 5
+	5 присваиваем в переменную x
+	 */
+	let e = 2;
+	let x = 1 + (e *= 2); //ответ 5
+	console.log(e);
+	console.log(x);
+</script>
+
+<!--     задание №3-->
+<script>
+	let f;
+	let g;
+	let result;
+	f = Number(prompt("ввести число f"));
+	g = Number(prompt("ввести число g"));
+
+	if (f >= 0 && g >= 0) {
+        result = f - g;
+	    alert(result);
+	} else if (f < 0 && g < 0) {
+        result = f*g;
+	    alert(result);
+	} else if (f >= 0 && g < 0 || f < 0 && g >= 0) {
+        result = f + g;
+	    alert(result);
+	} else {
+	    alert("этот вариант никогда не выведется")
+	}
+</script>
+
+<!--     задание №4-->
+<script>
+    let result2;
+    const sum = (h, i) => {
+        result2 = h + i;
+        return console.log(result2);
+    }
+
+    const sub = (h, i) => {
+        result2 = h - i;
+        return console.log(result2);
+    }
+
+    const mul = (h, i) => {
+        result2 = h * i;
+        return console.log(result2);
+    }
+
+    const del = (h, i) => {
+        result2 = h / i;
+        return console.log(result2);
+    }
+
+    sum(-41, 7);
+    sub(6, 4);
+    mul(38, 90);
+    del(64, 8);
+</script>
+
+<!--     задание №5-->
+<script>
+    const mathOperation = (arg1, arg2, operation) => {
+        switch (operation) {
+            case sum:
+                console.log(operation(arg1, arg2));
+                break;
+            case sub:
+                console.log(operation(arg1, arg2));
+                break;
+            case mul:
+                console.log(operation(arg1, arg2));
+                break;
+            case del:
+                console.log(operation(arg1, arg2));
+                break;
+            default:
+                console.log("функция отсутствует");
+        }
+    }
+    mathOperation(6, 3, sum);
+    mathOperation(6, -3, sub);
+    mathOperation(8, 2, mul);
+    mathOperation(9, 3, del);
+</script>
+
+<!--     задание №6-->
+<script>
+    let sumOfMoney = prompt("Ввести сумму, необходимую положить на счет в банке");
+    let ending;
+    let array = Number(sumOfMoney.slice(-2));
+    console.log(array);
+    if (array > 10 && array < 20) {
+         ending = "ей";
+	} else {
+        array = Number(sumOfMoney.slice(-1));
+        switch (array) {
+            case 1:
+                ending = "ь";
+                break;
+            case 2:
+            case 3:
+            case 4:
+                ending = "я";
+                break;
+            default:
+                ending = "ей";
+        }
+	}
+
+    alert(`Ваша сумма в ${sumOfMoney} рубл${ending} успешно зачислена`);
+</script>
+
+</body>
+</html>
