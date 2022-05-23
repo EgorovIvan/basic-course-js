@@ -1,1 +1,1 @@
-# basic-course-js-
+# basic-course-js
