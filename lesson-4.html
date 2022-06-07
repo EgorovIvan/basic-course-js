@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+
+<!--     задание №1-->
+<script>
+    let number = Number(prompt("Ввести число от 0 до 999:")),
+        array,
+        obj = {
+            units: null,
+            tens: null,
+            hundreds: null
+        }
+
+    let example = () => {
+        if (number >= 0 && number <= 999 && Number.isInteger(number) && Number.isFinite(number)) {
+            array = ('' + number).split('');
+            switch (array.length) {
+                case 1:
+                    obj.units = array[0];
+                    obj.tens = 0;
+                    obj.hundreds = 0;
+                    break;
+                case 2:
+                    obj.units = array[1];
+                    obj.tens = array[0]
+                    obj.hundreds = 0;
+                    break;
+                case 3:
+                    obj.units = array[2];
+                    obj.tens = array[1];
+                    obj.hundreds = array[0];
+                    break;
+                default:
+                    break;
+            }
+            console.log("units:" + obj.units);
+            console.log("tens:" + obj.tens);
+            console.log("hundreds:" + obj.hundreds);
+            return
+        } else {
+            return console.warn("условия не выполнены");
+        }
+    }
+
+    console.warn("Задание №1:")
+    example();
+
+</script>
+
+<!--     задание №1.1-->
+<script>
+    "use strict";
+
+    //es5
+    function Product(name, price) {
+        this.name = name;
+        this.price = price;
+    }
+
+    Product.make25PercentDiscount = (price) => {
+        return 0.75 * price;
+    }
+
+    console.warn("Задание №1.1:");
+    const newProduct = new Product("Mark", 100);
+    console.log(newProduct.name);
+    console.log(newProduct.price);
+    const sell = Product.make25PercentDiscount(newProduct.price);
+    console.log(sell);
+
+    //es6
+    class Product2 {
+        constructor(name, price) {
+            this.name = name;
+            this.price = price;
+        }
+
+        static make25PercentDiscount2(price) {
+            return 0.75 * price;
+        }
+    }
+
+    const newProduct2 = new Product2("Mark2", 200);
+    console.log(newProduct2.name);
+    console.log(newProduct2.price);
+    const sell2 = Product2.make25PercentDiscount2(newProduct2.price);
+    console.log(sell2);
+</script>
+
+<!--     задание №1.2-->
+<script>
+    "use strict";
+
+    //es5
+    function Post(author, text, date) {
+        this.author = author;
+        this.text = text;
+        this.date = date;
+    }
+
+    Post.prototype.edit = () => {
+        return this.text
+    }
+
+    function AttachedPost(author, text, date, highlighted) {
+        Post.call(this, author, text, date);
+        this.highlighted = false;
+    }
+
+    AttachedPost.prototype = Object.create(Post.prototype);
+    AttachedPost.prototype.constructor = AttachedPost;
+
+    AttachedPost.prototype.makeHighlighted = () => {
+        this.highlighted = true;
+    }
+
+    //es6
+    class Post2 {
+        constructor(author, text, date) {
+            this.author = author;
+            this.text = text;
+            this.date = date;
+        }
+
+        edit() {
+            return this.text
+        }
+    }
+
+    class AttachedPost2 extends Post2 {
+        constructor(author, text, date, highlighted) {
+            super(author, text, date);
+            this.highlighted = false
+        }
+
+        makeHighlighted() {
+            this.highlighted = true;
+        }
+    }
+
+    let myPost = new AttachedPost2("User", prompt("Введите текст:"), new Date(), false);
+    let sendPost = myPost.edit();
+
+    console.warn("Задание №1.2:");
+    console.log(myPost.author);
+    console.log(sendPost);
+    console.log(myPost.date);
+    console.log(myPost.highlighted);
+    myPost.makeHighlighted();
+    console.log(myPost.highlighted);
+</script>
+
+<!--     задание №2-->
+<script src="config.js"></script>
+<script src="player.js"></script>
+<script src="renderer.js"></script>
+<script src="mover.js"></script>
+<script src="game.js"></script>
+
+
+</body>
+</html>
